@@ -1,5 +1,4 @@
 target = 600851475143
-i = 1
 
 def findLargestPrimeFactor(target):
 	i = 1
