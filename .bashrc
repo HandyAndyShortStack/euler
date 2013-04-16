@@ -1,0 +1,1 @@
+alias newlevel='python newlevel.py'
