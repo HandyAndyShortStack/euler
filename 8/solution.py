@@ -29,7 +29,6 @@ for i1 in range(len(haystack) - 5):
 	product = digits[0] * digits[1] * digits[2] * digits[3] * digits[4]
 
 	if product > greatest_product:
-		print digits, product
 		greatest_product = product
 
 print greatest_product
