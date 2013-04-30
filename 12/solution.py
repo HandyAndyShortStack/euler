@@ -6,6 +6,13 @@ def getFactors(target):
 			factors.append(target / i)
 	return factors
 
-factors = getFactors(28)
-factors.sort()
-print factors
+done = False
+term = 0
+triangle_number = 0
+while not done:
+	term += 1
+	triangle_number += term
+ 	if len(getFactors(triangle_number)) > 500:
+ 		done = True
+
+print triangle_number
