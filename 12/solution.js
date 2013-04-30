@@ -1,5 +1,5 @@
 function getFactors(target) {
-	factors = [];
+	var factors = [];
 	for (var i = 0; i < Math.sqrt(target); i += 1) {
 		if (target % i === 0) {
 			factors.push(i);
@@ -9,9 +9,9 @@ function getFactors(target) {
 	return factors;
 }
 
-done = false;
-term = 0;
-triangle_number = 0;
+var done = false;
+var term = 0;
+var triangle_number = 0;
 while (!done) {
 	term += 1;
 	triangle_number += term;
