@@ -1,34 +1,25 @@
-function getDigitLength(number) {
-	var digits = 0;
-	while (Math.pow(10, digits) <= number) {
-		digits += 1;
-	}
-	return digits;
-}
-
-function chopFirstDigit(number) {
-	var left_digit = parseInt(number.toString()[0]);
-	return number - (left_digit * Math.pow(10, getDigitLength(number) - 1));
-}
-
-function getDigit(index) {
-	var working_number = 2;
-	for (var i = 0; i < 999; i += 1) {
-		working_number = working_number * 2;
-		if (working_number >= Math.pow(10, index)) {
-			working_number = chopFirstDigit(working_number);
+var strumberray = ['2'];
+var carried = 0;
+for (var i = 0; i < 999; i += 1) {
+	for (var index = 0; index < strumberray.length; index += 1) {
+		var product = parseInt(strumberray[index], 10) * 2;
+		product += carried;
+		carried = 0;
+		if (product >= 10) {
+			product -= 10;
+			carried = 1;
 		}
+		strumberray[index] = product.toString();
 	}
-	if (working_number < Math.pow(10, index - 1)) {
-		return 0;
+	if (carried) {
+		strumberray[strumberray.length] = carried.toString();
+		carried = 0;
 	}
-	return parseInt(working_number.toString()[0]);
 }
 
-var sum = '';
-digit_length = getDigitLength(Math.pow(2, 1000));
-for (var i = 1; i <= digit_length; i += 1) {
-	sum += getDigit(i);
+var sum = 0;
+for (var i = 0; i < strumberray.length; i += 1) {
+	sum += parseInt(strumberray[i], 10);
 }
 
-console.log(sum.split("").reverse().join(""));
+console.log(sum);
