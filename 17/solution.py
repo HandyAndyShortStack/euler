@@ -1,65 +1,27 @@
-number_names = {
-	0: {
-		0: '',
-		1: 'one',
-		2: 'two',
-		3: 'three',
-		4: 'four',
-		5: 'five',
-		6: 'six',
-		7: 'seven',
-		8: 'eight',
-		9: 'nine'
-	},
-	1: {
-		0: '',
-		1: {
-			0: 'ten',
-			1: 'eleven',
-			2: 'twelve',
-			3: 'thirteen',
-			4: 'fourteen',
-			5: 'fifteen',
-			6: 'sixteen',
-			7: 'seventeen',
-			8: 'eighteen',
-			9: 'nineteen'
-		},
-		2: 'twenty',
-		3: 'thirty',
-		4: 'fourty',
-		5: 'fifty',
-		6: 'sixty',
-		7: 'seventy',
-		8: 'eighty',
-		9: 'ninety'
-	}
-}
+one_through_nine = (
+	'one' + 'two' + 'three' +
+	'four' + 'five' + 'six' +
+	'seven' + 'eight' + 'nine'
+)
 
-def getNumberOfLetters(number):
-	total = 0
-	limber = [int(number) for number in list(str(number))]
-	limber.reverse()
-	if len(limber) == 1:
-		total += len(number_names[0][limber[0]])
-	elif len(limber) == 2:
-		if limber[1] == 1:
-			total += len(number_names[1][1][limber[0]])
-		else:
-			total += len(number_names[1][limber[1]])
-			total += len(number_names[0][limber[0]])
-	elif len(limber) == 3:
-		total += getNumberOfLetters(limber[2])
-		total += len('hundred')
-		if limber[1] != 0 and limber[0] != 0:
-			total += len('and')
-			total += getNumberOfLetters(int(limber[1] + limber[0]))
-	elif len(limber) == 4:
-		total += len('one' + 'thousand')
-	return total
+ten_through_nineteen = (
+	'ten' + 'eleven' + 'twelve' + 'thirteen' + 'fourteen' +
+	'fifteen' + 'sixteen' + 'seventeen' + 'eighteen' + 'nineteen'
+)
+
+twenty_through_ninety = (
+	'twenty' + 'thirty' + 'forty' + 'fifty' +
+	'sixty' + 'seventy' + 'eighty' + 'ninety'
+)
 
 total = 0
-for i in range(1, 1001):
-	total += getNumberOfLetters(i)
+
+total += len(one_through_nine) * 90
+total += len(ten_through_nineteen) * 10
+total += len(twenty_through_ninety) * 100
+total += len('and') * 99 * 9
+total += len('hundred') * 900
+total += len(one_through_nine) * 100
+total += len('one' + 'thousand')
 
 print total
