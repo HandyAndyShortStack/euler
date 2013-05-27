@@ -1,0 +1,1 @@
+puts '0123456789'.split('').permutation.take(1000000).last.reduce(:+)
