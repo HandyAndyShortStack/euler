@@ -10,9 +10,11 @@ def find_length_of_repeating_segment_of_unit_fraction(number):
     index += 1
 
 greatest_repeating_segment_length = 0
+result = 0
 for i in range(1, 1000):
   segment_length = find_length_of_repeating_segment_of_unit_fraction(i)
   if segment_length > greatest_repeating_segment_length:
     greatest_repeating_segment_length = segment_length
+    result = i
 
-print greatest_repeating_segment_length
+print result
