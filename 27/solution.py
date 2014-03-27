@@ -12,12 +12,10 @@ def result(a, b, n):
   return (n ** 2) + (a * n) + b
   
 def findNumberOfPrimes(a, b):
-  count = 0
   i = 0
   while isPrime(result(a, b, i)):
-    count += 1
     i += 1
-  return count
+  return i
 
 mostPrimes = 0
 product = 0

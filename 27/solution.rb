@@ -5,13 +5,11 @@ def result a, b, n
 end
 
 def find_number_of_primes a, b
-  count = 0
   i = 0
   while result(a, b, i).prime?
-    count += 1
     i += 1
   end
-  count
+  i
 end
 
 most_primes = 0
